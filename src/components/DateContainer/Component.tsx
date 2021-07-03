@@ -14,6 +14,8 @@ const Component: React.FC = () => {
    const days = useAppSelector((state) => state.main.days);
    const dispatch = useAppDispatch();
 
+   // set active index to detect which item was clicked and change day in redux store
+
    const handleClick = (index: number) => {
       setActiveIndex(index);
       dispatch(setDay(days[index].dayNumber));
@@ -30,14 +32,20 @@ const Component: React.FC = () => {
          </div>
          <div className='days-container'>
             {days.map((day, index) => {
+               // if the index is equal to active index it changes styles to active element
                return index === activeIndex ? (
                   <Day
+                     key={Math.random()}
                      handleClick={() => handleClick(index)}
                      {...day}
                      active={true}
                   />
                ) : (
-                  <Day handleClick={() => handleClick(index)} {...day} />
+                  <Day
+                     key={Math.random()}
+                     handleClick={() => handleClick(index)}
+                     {...day}
+                  />
                );
             })}
          </div>

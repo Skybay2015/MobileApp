@@ -4,18 +4,20 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-
 import 'firebase/firestore';
 import firebase from './firebase/firebaseConfig';
-
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 import { createFirestoreInstance } from 'redux-firestore';
 import store from './store/store';
+
+// create react-redux-firebase config
 
 const rrfConfig = {
    userProfile: 'result',
    useFirestoreForProfile: true,
 };
+
+// create react-redux-firebase props
 
 const rrfProps = {
    firebase,

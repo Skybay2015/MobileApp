@@ -15,15 +15,13 @@ const Component: React.FC = () => {
    const day = useAppSelector((state) => state.main.dayChosen);
    const time = useAppSelector((state) => state.main.timeChosen);
    // get data from firestore
-   const result = useSelector(
-      (state: any) => state.firestore.ordered.Result,
-   )[0];
+   const result = useSelector((state: any) => state.firestore.ordered.Result);
 
    useEffect(() => {
       // when data from firestore is loaded it saves to main store from firestore
       if (isLoaded(result)) {
-         dispatch(setDay(result.dayChosen));
-         dispatch(setTime(result.timeChosen));
+         dispatch(setDay(result[0].dayChosen));
+         dispatch(setTime(result[0].timeChosen));
       }
    }, [result]);
 

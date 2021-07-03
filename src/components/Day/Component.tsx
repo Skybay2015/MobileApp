@@ -16,6 +16,7 @@ const Component: React.FC<DayProps> = ({
    return (
       <div
          onClick={handleClick}
+         // change styles when it is active
          className={active ? 'day-item  day-item--active' : 'day-item'}>
          <span className='day-week'>{dayWeek}</span>
          <span className='day-number'>{dayNumber}</span>

@@ -33,15 +33,17 @@ const mainSlice = createSlice({
    name: 'main',
    initialState,
    reducers: {
-
+      // set chosen day
       setDay: (state, action: PayloadAction<number>) => {
          state.dayChosen = action.payload
       },
+
+      // set chosen time
       setTime: (state, action: PayloadAction<string>) => {
          state.timeChosen = action.payload
       }
    }
 })
 
-export const {  setDay, setTime} = mainSlice.actions
+export const { setDay, setTime} = mainSlice.actions
 export default mainSlice.reducer
